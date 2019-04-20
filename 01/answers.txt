@@ -1,4 +1,4 @@
-What data types do each of these values represent?
+1.What data types do each of these values represent?
 
 "A Clockwork Orange" : string
 42 : integer
@@ -6,19 +6,38 @@ What data types do each of these values represent?
 98.7 : float
 $15.99 :numeric value
 
-Explain in your own words when a database might be used. Explain when a text file might be used.
-A database might be used when storing values
 
-Describe one difference between SQL and other programming languages.
 
-In your own words, explain how the pieces of a database system fit together at a high level.
 
-Explain the meaning of table, row, column, and value.
+2. Explain in your own words when a database might be used. Explain when a text file might be used.
 
-List 3 data types that can be used in a table.
+A database might be used when storing and accessing data in an easier matter and that can handle multiple applications accessing the data.
+
+Text file might be used when data
+
+
+
+3. Describe one difference between SQL and other programming languages.
+
+SQL is a declarative rather than a procedural language. SQL's declarative programming is like describing a result and you get it back.
+
+4. In your own words, explain how the pieces of a database system fit together at a high level.
+
+
+
+5. Explain the meaning of table, row, column, and value.
+
+table: contains rows and columns and each cell in a table contains a particular value. Columns define what the data represents and rows make up a complete conceptual unit.
+
+
+
+6. List 3 data types that can be used in a table.
+
 string, integer, object
 
-Given this payments table, provide an English description of the following queries and include their results:
+
+
+7. Given this payments table, provide an English description of the following queries and include their results:
 
      SELECT date, amount
      FROM payments;
@@ -32,9 +51,33 @@ Given this payments table, provide an English description of the following queri
      WHERE payee = 'Mega Foods';
 
 
-Given this users table, write SQL queries using the following criteria and include the output:
+1. We're selecting two columns: date, amount from the payments table.
+2. we select one column: amount from the payments table where amount is larger than 500
+3. we select all columns from users table that matches where payee is 'Mega Foods'
+
+
+
+8. Given this users table, write SQL queries using the following criteria and include the output:
 
 The email and sign-up date for the user named DeAndre Data.
 The user ID for the user with email 'aleesia.algorithm@uw.edu'.
 All the columns for the user ID equal to 4.
 Additional practice:
+
+SELECT email, signup
+FROM users
+WHERE name = 'DeAndre Data';
+
+Result: email: datad@comcast.net signup: 2008-01-20
+
+SELECT id
+FROM users
+WHERE email = 'aleesia.algorithm@uw.edu';
+
+result:  id: 1
+
+SELECT *
+FROM users
+WHERE id = 4;
+
+result: name: Brandy Boolean email: bboolean@nasa.gov signup: 1999-10-15
