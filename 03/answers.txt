@@ -1,0 +1,131 @@
+1. List the commands for adding, updating, and deleting data:
+
+adding : INSERT INTO
+ex:
+  INSERT INTO products VALUES (11773, 'South Face Jacket', 174.99);
+
+updating : UPDATE
+ex:
+  UPDATE products SET price=159.99 WHERE id=11773;
+
+deleting: DELETE FROM
+ex:
+
+DELETE FROM products WHERE id=11776;
+
+2. explain the structure for each type of command:
+
+CREATE TABLE:
+
+instructs to create a table in the current database. each column a statement provides a name and a data type.
+
+ex:
+
+  CREATE TABLE products (
+      id integer,
+      name text,
+      price numeric(5, 2)
+  );
+
+
+INSERT INTO: populates table with values. we define a set of rows that
+will be inserted into the table
+
+ex INSERT INTO products VALUES (11773, 'South Face Jacket', 174.99);
+
+single row insertion. INSERT INTO is the command, and we choose the table (products). adding VALUES will define what values are being added into the table.
+values need to be laid out correctly in the columns they appear in the table.
+
+multiple row:
+
+INSERT INTO products (id, name, price)
+VALUES
+(11773, 'South Face Jacket', 174.99),
+(11774, 'Big Mountain 2-Person Tent', 219.99),
+(11775, 'King Cole Camp Stove', 34.99),
+(11776, 'Oregon Trail Mountain Bike', 579.99);
+
+
+UPDATE: UPDATE can be used with SET and WHERE to change data. we define what table being updated after UPDATE then use SET
+to change the data. the row can be found using WHERE.
+
+ex:
+
+UPDATE products SET price=159.99 WHERE id=11773;
+
+
+
+DELETE: removes data. used with FROM to target table and WHERE to find row.
+
+ex: DELETE FROM products WHERE id=11776;
+
+ALTER TABLE: can be used to change table's schema.
+
+ex:
+adding column:
+ALTER TABLE products ADD COLUMN description text;
+removing column:
+ALTER TABLE products DROP COLUMN description;
+
+
+3. What are some the data types that can be used in tables?
+Give a real world example of each.
+
+some data types that can be used in tables are serials, numeric, text, and dates
+
+real world exp for these three would be a database of items in a retail store.
+A table would be products and the table can consist of upc (serial) item name (text) price (numeric) and date added (date).
+There definitely can be more data to a product list like in store (boolean), item location(serial) on the floor (int) in the backroom (int).
+
+4. Think through how to create a new table to hold a list of people invited to a wedding. This table needs to have first and last name, whether they sent in their RSVP, the number of guests they are bringing, and the number of meals (1 for adults and 1/2 for children).
+
+First and last name: text.
+Sent RSVP: boolean: its a yes or no
+number of guests: int
+number of meals: numeric
+
+create table:
+
+CREATE TABLE invitations (
+    name text,
+    RSVP boolean,
+    guests integer,
+    meals numeric
+);
+
+Adds a column to track if they were sent a thank you card:
+
+ALTER TABLE invitations ADD COLUMN 'Thank You Card' boolean;
+
+Removing data about meals:
+
+ALTER TABLE invitations DROP COLUMN meals;
+
+Adding table number:
+
+ALTER TABLE invitations ADD COLUMN table integer;
+
+Deleting table:
+
+DROP TABLE invitations;
+
+
+5. Write a command to make a new table to hold the books in a library with the columns ISBN, title, author, genre, publishing date, number of copies, and available copies.
+
+CREATE TABLE library (
+    ISBN-13 char,
+    title text,
+    author text,
+    genre text,
+    'publishing date' date
+    copies integer,
+    'available copies' integer
+);
+
+INSERT INTO library (ISBN-13, title, author, genre, 'publishing date', copies, 'available copies'
+VALUES 
+  (978-1328869333, '1984', 'George Orwell', 'Fiction', 06/08/1949, 5, 5),
+  (978-0140268867, 'The Odyssey', 'Deckle Edge', 'Poetry', 11/01/1997 6, 6),
+  (978-0582275225, 'Brave New World', 'Aldous Huxley', 'Fiction', 01/01/1932 9, 9)
+
+);

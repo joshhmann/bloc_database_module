@@ -1,0 +1,85 @@
+Remember: List the commands to create, update, and delete tables.
+Remember: List the commands to create, update, and delete data.
+Understand: Describe how to use data types in tables.
+Apply: Run SQL commands to create, update, and delete data.
+Apply: Run SQL commands to create, update, and delete tables.
+
+creating tables and data types:
+
+CREATE TABLE:
+
+ex:
+
+CREATE TABLE products (
+    id integer,
+    name text,
+    price numeric(5, 2)
+);
+
+CREATE TABLE instructs postgres to create a table in the current database
+each column statement provides a name and data type.
+id - integer value
+name - text
+price - numeric
+
+
+Category	Data Types
+
+Numbers
+        bigint, decimal, double precision,
+        float4, float8, int, int2, int4, int8, money,
+        numeric, real, serial, serial2, serial4, smallint, smallserial
+
+Text	   char, character, character varying, text, varchar
+
+
+Date & Time	    date, interval, time, timestamp
+
+-----
+Inserting Data:
+
+INSERT INTO - populate table with values
+
+ex:
+
+  INSERT INTO products (id, name, price)
+  VALUES
+  (11773, 'South Face Jacket', 174.99),
+  (11774, 'Big Mountain 2-Person Tent', 219.99),
+  (11775, 'King Cole Camp Stove', 34.99),
+  (11776, 'Oregon Trail Mountain Bike', 579.99);
+
+
+  possible to insert a single row :
+  INSERT INTO products VALUES (11773, 'South Face Jacket', 174.99);
+
+  psql assumes values are laid out correctly in columns they appear on table.
+  Error is thrown if not correct:
+
+  ex
+
+inventory=# INSERT INTO products VALUES ('Dog Leash', 11777, 13.99);
+ERROR:  invalid input syntax for integer: "Dog Leash"
+LINE 1: INSERT INTO products VALUES ('Dog Leash', 11777, 13.99);
+
+
+
+updating and deleting data
+
+UPDATE products SET price=159.99 WHERE id=11773;
+
+
+DELETE FROM products WHERE id=11776;
+
+
+We can use multiple WHERE clauses to specify which records to remove. The following statement will remove all records where the  id is greater than 11774 and the price < 100;
+
+DELETE FROM products WHERE id> 11774 AND price < 100;
+
+
+ALTER TABLE products ADD COLUMN description text;
+
+
+ALTER TABLE products ADD COLUMN description text SET DEFAULT 'None';
+
+DROP TABLE products;
