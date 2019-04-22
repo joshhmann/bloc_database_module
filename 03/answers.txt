@@ -113,19 +113,72 @@ DROP TABLE invitations;
 5. Write a command to make a new table to hold the books in a library with the columns ISBN, title, author, genre, publishing date, number of copies, and available copies.
 
 CREATE TABLE library (
-    ISBN-13 char,
+    ISBN_13 char,
     title text,
     author text,
     genre text,
-    'publishing date' date
+    publishing_date date,
     copies integer,
-    'available copies' integer
+    available_copies integer
 );
 
-INSERT INTO library (ISBN-13, title, author, genre, 'publishing date', copies, 'available copies'
-VALUES 
+#find three books and add their info to the table:
+
+INSERT INTO library (ISBN-13, title, author, genre, publishing_date, copies, available_copies)
+VALUES
   (978-1328869333, '1984', 'George Orwell', 'Fiction', 06/08/1949, 5, 5),
   (978-0140268867, 'The Odyssey', 'Deckle Edge', 'Poetry', 11/01/1997 6, 6),
-  (978-0582275225, 'Brave New World', 'Aldous Huxley', 'Fiction', 01/01/1932 9, 9)
+  (978-0582275225, 'Brave New World', 'Aldous Huxley', 'Fiction', 01/01/1932 9, 9);
 
+
+someone just checked out one of the boots. Change the available copies column to 1 fewer:
+
+UPDATE library SET available_copies=4 WHERE ISBN_13=978-1328869333;
+
+banned book
+
+DELETE FROM library WHERE ISBN_13=978-0140268867;
+
+
+6.Write a command to make a new table to hold spacecrafts. Information should include id, name, year launched, country of origin, a brief description of the mission, orbiting body, if it is currently operating, and approximate miles from Earth. In addition to the table creation, provide commands that perform the following operations:
+
+CREATE TABLE spacecrafts (
+    id integer,
+    name text,
+    year_launched integer,
+    country_of_origin text,
+    mission_description text,
+    orbiting_body text,
+    operating boolean,
+    miles_from_earth integer
 );
+
+INSERT INTO spacecrafts (id, name, year_launched, country_of_origin, mission_description, orbiting_body, operating, miles_from_earth)
+    VALUES
+    (1, 'Akatsuki', 2010, 'Japan', 'First Japanese Venusian probe', 'Venus', TRUE, 162000000),
+    (2, 'MAVEN', 2013, 'US', 'Study the martian upper atmosphere and it's gradual loss to space', 'Mars', TRUE, 33900000),
+    (3, 'Juno', 2016, 'US', 'studying Jupiter from polar orbit', 'Jupiter', TRUE, 365000000 );
+
+DELETE FROM spacecrafts WHERE id=2
+UPDATE spacecrafts SET operating=FALSE WHERE id=3
+
+
+CREATE TABLE inbox (
+    id integer,
+    subject_line text,
+    sender text,
+    addtional_recipients text,
+    body text,
+    date CURRENT_TIMESTAMP,
+    read boolean,
+    id_chain integer
+);
+
+INSERT INTO inbox (id, subject_line, sender, addtional_recipients, body, date, read, id_chain)
+    VALUES
+    (1, 'New Meeting Date' 'Jimmy Doe', 'James Lu' 'Hey we have a change in the meeting date. Please confirm the new calendar event', 00:00:01, TRUE, 3 ),
+    (2, 'New Friend Request' 'Friend Space', '' 'You have a new friend request! James Lu', 10:00:01, FALSE, 5 ),
+    (3, 'Your credit score has been updated' 'John Cienna', '' 'Your credit score has changed. Login to find out what has changed!', 13:00:01, TRUE, 7 );
+
+    DELETE FROM inbox WHERE id=2;
+    UPDATE inbox SET read=FALSE WHERE id=1;
