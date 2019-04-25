@@ -1,0 +1,35 @@
+Remember: List the commands in a SELECT statement.
+
+SELECT statements have the following format:
+
+    SELECT <column1, column2, ... *>
+    FROM <table1, table2 ...>
+    <optional: WHERE <condition>>
+
+comparison operators: <, >, <=, >=, != and =
+
+<> is like !=
+
+SQL uses a single = symbol to mean equal to instead of ==. can be used on both strings and numbers
+in case of strings both case and characters need to be the same for the two strings to be equal
+"Numero Uno" != "NuMer0 Uno"
+
+strings have additional operators : LIKE in the WHERE clause:
+
+SELECT title
+FROM books
+WHERE title LIKE '%Bartholomew%';
+
+
+Understand: Describe the structure of an SQL query.
+
+
+
+Remember: List the format of a SELECT statement.
+Remember: Write the options for the SELECT keyword (*, column).
+Remember: List the different comparison operators.
+Understand: Explain how the different comparison operators work.
+Understand: Explain how the logical operators AND, OR, and NOT are used.
+Apply: Execute a query to return a specific set of data.
+Apply: Use the different comparison operators in a query.
+Apply: Use the different logical operators in a query.
