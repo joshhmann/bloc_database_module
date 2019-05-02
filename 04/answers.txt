@@ -1,0 +1,23 @@
+1. generic SELECT statement:
+
+SELECT name
+FROM profiles
+WHERE name LIKE 'J%'
+AND name LIKE 'K%';
+
+2. I tried a fun way to remember: start(select) furiously(from) walking(where) lively(like)
+
+
+3.
+
+* display all labs:
+
+SELECT name, gender, age, breed
+FROM  dogs
+WHERE breed LIKE 'Labrador'
+
+* display id of dogs under 1 yr old
+
+SELECT id, age
+FROM dogs
+WHERE age < 1 

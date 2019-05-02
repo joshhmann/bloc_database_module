@@ -1,4 +1,5 @@
 Remember: List the commands in a SELECT statement.
+Remember: List the format of a SELECT statement.
 
 SELECT statements have the following format:
 
@@ -21,11 +22,21 @@ FROM books
 WHERE title LIKE '%Bartholomew%';
 
 
+Logical operators:
+
+AND OR NOT
+
+SELECT title, year
+FROM books
+WHERE title LIKE 'H%'
+AND year > 1960;
+
 Understand: Describe the structure of an SQL query.
 
 
 
-Remember: List the format of a SELECT statement.
+
+
 Remember: Write the options for the SELECT keyword (*, column).
 Remember: List the different comparison operators.
 Understand: Explain how the different comparison operators work.
