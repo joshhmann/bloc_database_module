@@ -14,10 +14,28 @@ AND name LIKE 'K%';
 
 SELECT name, gender, age, breed
 FROM  dogs
-WHERE breed LIKE 'Labrador'
+WHERE breed LIKE 'Labrador';
 
 * display id of dogs under 1 yr old
 
 SELECT id, age
 FROM dogs
-WHERE age < 1 
+WHERE age > 1;
+
+* display name and age of all dogs female and over 35lbs
+
+SELECT name, age, gender, weight
+FROM dogs
+WHERE gender LIKE 'female'
+AND weight < 35lbs;
+
+* display all of information about all dogs that are not Shepard mixes
+
+SELECT *
+FROM dogs
+WHERE breed <> "shepard%";
+
+* display id, age, weight and breed of all dogs that are either over 60lb or great danes
+
+SELECT id, age, weight, breed
+FROM dogs
