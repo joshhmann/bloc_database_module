@@ -20,22 +20,62 @@ WHERE breed LIKE 'Labrador';
 
 SELECT id, age
 FROM dogs
-WHERE age > 1;
+WHERE age < 1;
 
 * display name and age of all dogs female and over 35lbs
 
 SELECT name, age, gender, weight
 FROM dogs
 WHERE gender LIKE 'female'
-AND weight < 35lbs;
+AND weight >= 35;
 
 * display all of information about all dogs that are not Shepard mixes
 
 SELECT *
 FROM dogs
-WHERE breed <> "shepard%";
+WHERE breed <> "Shepherd%";
 
 * display id, age, weight and breed of all dogs that are either over 60lb or great danes
 
 SELECT id, age, weight, breed
 FROM dogs
+WHERE weight >= 65
+OR breed LIKE "Great Dane%"
+
+
+4. given the cats table what record are returned from these queries?
+
+SELECT name, adoption_date FROM cats;
+
+|name    | adoption_date
+|--------|------------|
+|Mushi   | 2016-03-22 |
+|Seashell| 2016-01-09 |
+|Azul    | 2016-04-17 |
+|Victoire| 2016-09-01 |
+|Nala    | NULL       |
+
+SELECT name, age FROM cats;
+
+|name    | age|
+|-------------|
+|Mushi   | 1  |
+|Seashell| 7  |
+|Azul    | 3  |
+|Victoire| 7  |
+|Nala    | 5  |
+
+5. from cats table, write queries to select the following pieces of data:
+
+Display all the information about all of the available cats.
+
+
+
+
+
+Display the name and sex of all cats who are 7 years old.
+
+
+
+
+Find all of the names of the cats, so you don’t choose duplicate names for new cats.
