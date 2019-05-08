@@ -33,14 +33,14 @@ AND weight >= 35;
 
 SELECT *
 FROM dogs
-WHERE breed <> "Shepherd%";
+WHERE breed != "Shepherd%";
 
 * display id, age, weight and breed of all dogs that are either over 60lb or great danes
 
 SELECT id, age, weight, breed
 FROM dogs
 WHERE weight >= 65
-OR breed LIKE "Great Dane%"
+OR breed LIKE "Great Dane%";
 
 
 4. given the cats table what record are returned from these queries?
@@ -50,7 +50,7 @@ SELECT name, adoption_date FROM cats;
 |name    | adoption_date
 |--------|------------|
 |Mushi   | 2016-03-22 |
-|Seashell| 2016-01-09 |
+|Seashell| NULL       |
 |Azul    | 2016-04-17 |
 |Victoire| 2016-09-01 |
 |Nala    | NULL       |
@@ -69,13 +69,74 @@ SELECT name, age FROM cats;
 
 Display all the information about all of the available cats.
 
-
-
+SELECT *
+FROM cats;
 
 
 Display the name and sex of all cats who are 7 years old.
 
-
-
+SELECT name, sex, age
+FROM  cats
+WHERE age < 7;
 
 Find all of the names of the cats, so you don’t choose duplicate names for new cats.
+
+SELECT name
+FROM cats;
+
+
+6. list each comparison operator and explain in your own words when you would use it. include a real world example for each
+
+> : is greater than when comparing two values. Can be used when finding values like percentages or prices that are greater than another value.
+Real world practice would be finding people older than a certain age.
+
+< : is less than when comparing two values. like greater than operator it can be used when finding values that are less than another value.
+Real world practice would be like greater than. We can also use this when looking for ids greater than so say 100 or find the newest users that created an account.
+
+= : equal to when comparing two values. this is used to find certain values like keywords, numbers, duplicates.
+Real world practice would be when finding an age group born within the same year.
+
+<= : just like greater than value but also including values equal to its comparison value.
+real world practice would be finding a number of times a certain hardware has failed
+
+>= just like less than value but includes values equal to its comparison value
+
+!= : not equal to when comparing two values. This is useful when ruling out a certain amount of data.
+real world practice would be finding ips that are not starting with a certain set of numbers or even ports
+
+<>: i am a bit confused about this one as the checkpoint states that <> is like using !=. I would assume it behaves the same way.
+
+LIKE : LIKE statement is used when finding a specific set of data containing a certain value. can be used when finding names or titles and even numbers.
+Real world practice would be finding a set of data like genre of music that's alternative.
+
+BETWEEN: BETWEEN statement is like finding a set of data between a range of comparisons. this can be used for finding data like review scores, dates, or age groups.
+
+IS DISTINCT FROM: Statement is when comparing two values that are different from each other. can also use IS NOT DISTINCT FROM to compare values that have a similar value.
+real world practice would be used when finding values that are different from each other.
+
+IS TRUE / IS FALSE: IS TRUE / IS FALSE is used when checking a boolean value. this can be used when checking values of true or false, or even 0/1.
+real world practice would be checking if a user still has an active subscription.
+
+IS NULL: checks if a value null. can be used to find values that are nulled.
+Real world practice would be when filling out a form and seeing an optional form to write.
+
+AND: AND statement requires that both statements must be true to return the row. We can use this for searching current users that have logged in on a certain day and are free users.
+
+OR: OR statement requires that either statement must be true to return the row. We can use this when searching for a list of popular topics based on views or likes/dislikes
+
+NOT: NOT statement returns rows that do not include a certain value. this can be used when searching for active users only. We can use a statement like users that have not been online for more than a day.
+
+
+7. From the cats table, what data is returned from these queries?
+
+SELECT name FROM cats WHERE gender = ‘F’;
+
+Returns names of cats that are female
+
+SELECT name FROM cats WHERE age <> 3;
+
+returns name of cats that are not the age of 3
+
+SELECT id FROM cats WHERE name != ‘Mushi’ AND gender = ‘M’;
+
+returns id's of cats that aren't the name Mushi and gender is not male
