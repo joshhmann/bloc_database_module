@@ -1,0 +1,21 @@
+List 5 aggregate functions and explain, in your own words, what they are for. Include a real world example for each. If you can’t list these from memory, do these flashcards until you can!
+
+SUM: used to sum value based on selected column. this can be used for combining yearly revenue for a company
+
+AVG: used to average values based on selected column. Can be used to average the amount of times people return to a website daily
+
+COUNT: returns the number of rows in a table: this can be used to find out the number of transactions made on a single day
+
+GROUP BY: a grouping clause. used with aggregate functions to group a result. this can be used when grouping a certain age group and averaging their amount of times they liked a post
+
+ORDER BY: to sort a select set in ascending or descending order. can be used to make an ordered list of employees who have called in sick the most from ascending or descending.
+
+Given this donations table, write queries and include the output for the following:
+
+The total of all donations received in the past year.
+
+The total donations over time per donor (e.g. if Tanysha has donated 3 times with the amounts $25, $30, and $50, then the result would be | Tanysha | 105 |).
+The average donation per donor.
+The number of donations over $100.
+The largest donation received in a single instance from a single donor.
+The smallest donation received.

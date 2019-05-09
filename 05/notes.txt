@@ -1,0 +1,69 @@
+Remember: List the different aggregate functions (SUM, AVG, COUNT, MIN,  MAX).
+Remember: List ordering and grouping clauses and their options (GROUP BY,  ORDER BY [ASC/DESC], LIMIT/OFFSET, HAVING).
+Understand: Explain what each aggregate function does.
+Understand: Explain what each ordering and grouping clause does.
+Apply: Use ordering, grouping, and aggregate functions in a query.
+Analyze: Determine the effects of aggregate functions on a query and construct the return set.
+
+
+what is a aggregate function?
+
+They are used to compute results or provide insights into a particular column of selected data
+you can compute minimum, maximum, average, and sum values or count a number of records from a column of numeric data from your SELECT statement
+
+some aggregate functions:
+SUM AVG COUNT MIN MAX
+
+hogwarts=# CREATE TABLE compensation (id integer, professor_id integer, salary integer, vacation_days integer);
+CREATE TABLE
+hogwarts=# COPY compensation FROM '/Users/joshanderson/Desktop/hogwarts/hogwarts-compensation.csv' DELIMITER ',' CSV;
+COPY 6
+hogwarts=# SELECT * FROM compensation;
+ id | professor_id | salary | vacation_days
+----+--------------+--------+---------------
+  1 |            1 |  64000 |             2
+  2 |            2 |  35000 |             8
+  3 |            3 |  56750 |            10
+  4 |            4 |  42950 |             8
+  5 |            5 |  30000 |             4
+  6 |            6 | 102750 |            22
+(6 rows)
+
+hogwarts=# SELECT SUM(salary)
+hogwarts-# FROM compensation;
+  sum
+--------
+ 331450
+(1 row)
+
+hogwarts=# SELECT MAX(SALARY) FROM compensation;
+  max
+--------
+ 102750
+(1 row)
+
+hogwarts=# SELECT MIN(vacation_days) FROM compensation;
+ min
+-----
+   2
+(1 row)
+
+hogwarts=# SELECT AVG(salary) FROM compensation
+hogwarts-# ;
+        avg
+--------------------
+ 55241.666666666667
+(1 row)
+
+hogwarts=# SELECT COUNT(professor_id) FROM compensation;
+ count
+-------
+     6
+(1 row)
+
+
+Grouping clauses
+
+grouping clauses are used to organize returned data sets.
+
+DISTINCT, GROUP BY, ORDER BY, HAVING
