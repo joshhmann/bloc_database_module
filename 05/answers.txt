@@ -14,8 +14,89 @@ Given this donations table, write queries and include the output for the followi
 
 The total of all donations received in the past year.
 
+got=# SELECT SUM(amount)
+      FROM donations;
+   sum
+----------
+ 993.0000
+(1 row)
+
 The total donations over time per donor (e.g. if Tanysha has donated 3 times with the amounts $25, $30, and $50, then the result would be | Tanysha | 105 |).
+
+got=# SELECT SUM(amount) AS total_amount, donor
+got-# FROM donations
+got-# GROUP BY donor
+got-# ;
+ total_amount |   donor
+--------------+------------
+      30.0000 | Ygritte
+      60.0000 | Arya
+      70.0000 | Petyr
+     120.0000 | Margaery
+      25.0000 | Jon
+      10.0000 | Daario
+      50.0000 | Tormund
+      33.0000 | Sansa
+      20.0000 | Samwell
+      45.0000 | Melisandre
+     173.0000 | Daenerys
+      20.0000 | Bronn
+     120.0000 | Tyrion
+       7.0000 | Gilly
+      20.0000 | Theon
+      75.0000 | Brienne
+      25.0000 | Bran
+      90.0000 | Missandei
+(18 rows)
+
 The average donation per donor.
+
+got=# SELECT AVG(amount) AS avg_donation, donor
+FROM donations
+GROUP BY donor;
+     avg_donation     |   donor
+----------------------+------------
+  30.0000000000000000 | Ygritte
+  20.0000000000000000 | Arya
+  70.0000000000000000 | Petyr
+ 120.0000000000000000 | Margaery
+  25.0000000000000000 | Jon
+  10.0000000000000000 | Daario
+  50.0000000000000000 | Tormund
+  33.0000000000000000 | Sansa
+  20.0000000000000000 | Samwell
+  45.0000000000000000 | Melisandre
+  86.5000000000000000 | Daenerys
+  20.0000000000000000 | Bronn
+  40.0000000000000000 | Tyrion
+   7.0000000000000000 | Gilly
+  10.0000000000000000 | Theon
+  75.0000000000000000 | Brienne
+  25.0000000000000000 | Bran
+  22.5000000000000000 | Missandei
+(18 rows)
+
 The number of donations over $100.
+
+got=# SELECT amount FROM donations WHERE amount > 100;
+  amount
+----------
+ 102.0000
+ 120.0000
+(2 rows)
+
 The largest donation received in a single instance from a single donor.
+
+got=# SELECT MAX(amount) FROM donations;
+   max
+----------
+ 120.0000
+(1 row)
+
 The smallest donation received.
+
+got=# SELECT MIN(amount) FROM donations;
+  min
+--------
+ 5.0000
+(1 row)
